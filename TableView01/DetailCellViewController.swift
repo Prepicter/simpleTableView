@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  DetailCellViewController.swift
 //  TableView01
 //
 //  Created by dit03 on 2019. 5. 22..
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailCellViewController: UIViewController {
     
+    @IBOutlet weak var detailCellData: UILabel!
+    @IBOutlet weak var detailCellImageView: UIImageView!
     
-    @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var myImageView: UIImageView!
-    
-    // 배열 데이터 받는 변수 선언
-    var dataLabel: String?
-    var dataImage: String?
+    var cellData: String?
+    var cellImage: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        myLabel.text = dataLabel
-//        myImageView.image = UIImage(named: dataImage!)
+
+        detailCellData.text = cellData
+        detailCellImageView.image = UIImage(named: cellImage!)
+        // Do any additional setup after loading the view.
     }
     
 
@@ -35,12 +35,4 @@ class DetailViewController: UIViewController {
     }
     */
 
-    @IBAction func backToViewController(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func saveData(_ sender: Any) {
-        myLabel.text = "Data Saved"
-    }
-    
-    
 }

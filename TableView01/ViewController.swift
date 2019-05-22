@@ -62,9 +62,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // 배열 데이터 전송
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goDetail" {
-            let dvController = segue.destination as! DetailViewController
-            dvController.dataLabel = animals[2]
-            dvController.dataImage = animals[2]
+//            let dvController = segue.destination as! DetailViewController
+//            dvController.dataLabel = animals[2]
+//            dvController.dataImage = animals[2]
+        } else if segue.identifier == "goCell" {
+            let dcController = segue.destination as! DetailCellViewController
+            let IndexPath = myTableView.indexPathForSelectedRow
+            let row = IndexPath?.row
+            dcController.cellData = animals[row!]
+            dcController.cellImage = animals[row!]
+        } else if segue.identifier == "godetailCell" {
+            let dtController = segue.destination as! myTableViewController
+            let IndexPath = myTableView.indexPathForSelectedRow
+            let row = IndexPath?.row
+            dtController.detailAnimals = animals[row!]
+            dtController.detailYear = year[row!]
+        } else {
+            print("에러")
         }
     }
     

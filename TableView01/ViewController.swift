@@ -59,6 +59,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("클릭 : \(indexPath.row)")
     }
     
+    // 배열 데이터 전송
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goDetail" {
+            let dvController = segue.destination as! DetailViewController
+            dvController.dataLabel = animals[2]
+            dvController.dataImage = animals[2]
+        }
+    }
+    
 
 }
 
